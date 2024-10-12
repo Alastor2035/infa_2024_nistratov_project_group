@@ -1,0 +1,1 @@
+# infa_2024_nistratov_project_group
