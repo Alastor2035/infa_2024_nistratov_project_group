@@ -32,6 +32,10 @@ class List:
             return None
 
         node = self.head
+        if index < 0:
+            index += self.size
+            if index < 0:
+                return None
         while index > 0:
             index -= 1
             node = node.next
@@ -39,6 +43,8 @@ class List:
 
     def push(self, index, value):
         node = self.head
+        if index < 0:
+            raise Exception("index out of list")
         while index > 0:
             index -= 1
             if node.next.value == "tail":
@@ -58,6 +64,10 @@ class List:
         if self.size-1 < index:
             raise Exception("Popping out of list")
         node = self.head
+        if index < 0:
+            index += self.size
+            if index < 0:
+                raise Exception("Popping out of list")
         while index > 0:
             index -= 1
             node = node.next
