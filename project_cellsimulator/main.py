@@ -62,13 +62,13 @@ class Game:
         spaces_map = {(c.x, c.y): c for c in self.spaces}
         cell_map = {**cell_map, **spaces_map}
 
-        self.cells[0].delta = 0
+        self.cells[0].delta = 1
         for cell in self.cells:
             neighbours = [(cell.x+1, cell.y), (cell.x-1, cell.y), (cell.x, cell.y+1), (cell.x, cell.y-1)]
             for nx, ny in neighbours:
                 if (nx, ny) in cell_map:
                     other = cell_map[(nx, ny)]
-                    other.delta = min(cell.delta + 10, 1000)
+                    other.delta = min(cell.delta + 1, 100)
                     if not any(c.target is other for c in cell.contacts):
                         self.connect(cell, other, cell.delta)
 
@@ -154,7 +154,7 @@ class Game:
         self.upd_queue.append([])
         for contact in queue:
             contact.transport(dt)
-            self.upd_queue[contact.delta - 1].append(contact)
+            self.upd_queue[contact.delta-1].append(contact)
 
     def draw(self):
         """Отрисовка всех объектов на экране"""

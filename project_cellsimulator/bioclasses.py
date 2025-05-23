@@ -13,7 +13,7 @@ class Cell:
         self.K = DEFAULT_K
         self.Na = DEFAULT_NA
         self.ATP = DEFAULT_ATP
-        self.delta = 990
+        self.delta = 99
         self.contacts = []
 
     def to_dict(self):
@@ -34,7 +34,7 @@ class ExtracellularSpace:
         self.type = "ECS"
         self.x = x
         self.y = y
-        self.delta = 990
+        self.delta = 99
         self.ATP = 0
         self.K = DEFAULT_ECS_K
         self.Na = DEFAULT_ECS_NA
