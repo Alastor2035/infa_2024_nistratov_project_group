@@ -155,6 +155,9 @@ class Game:
         for contact in queue:
             contact.transport(dt)
             self.upd_queue[contact.delta-1].append(contact)
+        for space in self.spaces:
+            space.K = DEFAULT_ECS_K
+            space.Na = DEFAULT_ECS_NA
 
     def draw(self):
         """Отрисовка всех объектов на экране"""
