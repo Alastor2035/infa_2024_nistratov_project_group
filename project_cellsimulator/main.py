@@ -62,16 +62,16 @@ class Game:
         spaces_map = {(c.x, c.y): c for c in self.spaces}
         cell_map = {**cell_map, **spaces_map}
 
-        delta = 10
+        self.cells[0].delta = 0
         for cell in self.cells:
             neighbours = [(cell.x+1, cell.y), (cell.x-1, cell.y), (cell.x, cell.y+1), (cell.x, cell.y-1)]
             for nx, ny in neighbours:
                 if (nx, ny) in cell_map:
                     other = cell_map[(nx, ny)]
+                    other.delta = min(cell.delta + 10, 1000)
                     if not any(c.target is other for c in cell.contacts):
-                        self.connect(cell, other, delta)
-            delta += 10
-            delta = min(delta, 1000)
+                        self.connect(cell, other, cell.delta)
+
 
 
     def set_running(self, running):

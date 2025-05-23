@@ -13,6 +13,7 @@ class Cell:
         self.K = DEFAULT_K
         self.Na = DEFAULT_NA
         self.ATP = DEFAULT_ATP
+        self.delta = 990
         self.contacts = []
 
     def to_dict(self):
@@ -33,6 +34,7 @@ class ExtracellularSpace:
         self.type = "ECS"
         self.x = x
         self.y = y
+        self.delta = 990
         self.ATP = 0
         self.K = DEFAULT_ECS_K
         self.Na = DEFAULT_ECS_NA
@@ -81,7 +83,7 @@ class CellContact:
         na_to_move = min(self.source.Na, 3 * total_cycles)
         k_to_move = min(self.target.K, 2 * total_cycles)
         atp_cost = total_cycles
-        
+
         if self.source.ATP >= atp_cost:
             self.source.ATP -= atp_cost
             self.source.Na -= na_to_move
