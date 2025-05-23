@@ -1,0 +1,29 @@
+
+#экран
+SCREEN_WIDTH = 1280
+SCREEN_HEIGHT = 720
+GRID_SIZE = 20
+CELL_SIZE = SCREEN_WIDTH // GRID_SIZE
+FPS = 30
+
+
+# Цвета
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+
+# Транспортные константы
+PASSIVE_K_RATE = 10   
+ACTIVE_PUMP_ATP_COST = 1 
+NA_OUT = 3          
+K_IN = 2            
+
+# Константы состояний
+DEFAULT_K = 140.0
+DEFAULT_NA = 10.0
+DEFAULT_ATP = 10
+DEFAULT_ECS_K = 4.0
+DEFAULT_ECS_NA = 140.0
+DEFAULT_P_K = 1e-5
+DEFAULT_THICKNESS = 1e-6
+DEFAULT_VMAX = 1e3
+DEFAULT_KM = 1e5
